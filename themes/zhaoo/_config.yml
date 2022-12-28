@@ -25,7 +25,7 @@ color:
   background-dark: '#1e2128'
   background-secondary-dark: '#1a1d22'
   border-dark: '#2b3038'
-  link: '#FF3B00'
+  link: '#999'
   link-gradient: 'linear-gradient(-60deg, #ff5858 0%, #f09819 100%)'
 
 # Favicon
@@ -52,7 +52,7 @@ loading:
 # Preview
 preview:
   enable: true
-  type: wave  # wave | cloud
+  type:   # wave | cloud
   background:
     type: image # image video
     default_image:
@@ -124,7 +124,7 @@ excerpt:
 
 # Post Image
 post_image:
-  random: local # local galleries
+  random: galleries # local galleries
   default: /images/theme/post-image.jpg
 
 # Page Size

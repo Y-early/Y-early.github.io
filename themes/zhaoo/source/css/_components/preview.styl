@@ -4,12 +4,16 @@
   100%
     transform translate3d(85px, 0, 0)
 @keyframes blink
-  0%
+  25%
+    transform translateY(-6px)
     opacity 1
   50%
-    opacity 0
+   transform translateY(0)
+   opacity 1
   100%
-    opacity 1
+    transform translateY(6px);
+    opacity 0.7
+
 .preview
   .navbar
     position absolute
@@ -29,7 +33,7 @@
       color #ffffff
   .preview-image
     z-index 40
-    height 90vh
+    height 100vh
     width 100%
     background-image var(--background-image)
     background-repeat no-repeat
@@ -39,7 +43,19 @@
     position relative
     display flex
     justify-content center
-    align-items center
+    align-items 
+   
+    
+  .preview-scroll
+    height auto
+    display flex
+    justify-content center
+    align-items flex-end
+    padding-bottom 40px
+    animation blink 1.5s linear infinite
+    i
+      font-size 32px
+
     .preview-video
       object-fit cover
       width 100%
@@ -50,6 +66,7 @@
       left -100vw
       right 0
       z-index 50
+      display:none
       filter drop-shadow(var(--color-background) 100vw 0px)
       .preview-waves
         position relative
@@ -98,10 +115,4 @@
     .preview-motto, .preview-cursor
       @media (max-width 768px)
         font-size 2em
-  .preview-scroll
-    height 10vh
-    display flex
-    justify-content center
-    align-items center
-    i
-      font-size 32px
+ 
