@@ -34,7 +34,7 @@ favicon:
   medium: /images/icons/favicon-32x32.png
   apple_touch_icon: /images/icons/apple-touch-icon.png
   safari_pinned_tab: /images/icons/stun-logo.svg
-  msapplication: /images/icons/favicon-144x144.png
+  msapplication: /images/icons/android-chrome-192x192
 
 # Font
 font:
@@ -46,7 +46,7 @@ background_image:
 
 # Loading
 loading:
-  gif: /images/theme/loading.gif
+  gif: /images/theme/loding1.gif
   lottie:
 
 # Preview
@@ -124,8 +124,8 @@ excerpt:
 
 # Post Image
 post_image:
-  random: galleries # local galleries
-  default: /images/theme/post-image.jpg
+  random: local # local galleries
+  default: /images/theme/loading.gif
 
 # Page Size
 post_page_size:

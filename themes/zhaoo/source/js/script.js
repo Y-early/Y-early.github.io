@@ -1,4 +1,4 @@
-console.log("%c Github %c", "background:#333333; color:#ffffff", "", "https://github.com/izhaoo/hexo-theme-zhaoo");
+console.log("%c Github %c", "background:#333333; color:#ffffff", "", "https://github.com/Y-early");
 
 (function ($) {
   "use strict";
