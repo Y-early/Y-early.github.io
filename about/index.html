@@ -43,12 +43,12 @@
       
         
         
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/atom-one-dark.min.css" name="highlight-style" mode="light">
 
       
         
         
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/atom-one-dark.min.css" name="highlight-style" mode="dark">
 
       
   
@@ -228,27 +228,27 @@
 <p><img    class="lazyload" data-original="/./screenshots/article.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">文章</span></p>
 <p><img    class="lazyload" data-original="/./screenshots/galleries.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">相册</span></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 Hexo 后进入根目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> hexo<br></code></pre></td></tr></table></figure>
 
 <p>安装 zhaoo 主题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/izhaoo/hexo-theme-zhaoo.git themes/zhaoo</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> https://github.com/izhaoo/hexo-theme-zhaoo.git themes/zhaoo<br></code></pre></td></tr></table></figure>
 
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>修改 Hexo 根目录下的 <code>_config.yml</code> 文件启用 zhaoo 主题：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">zhaoo</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">theme:</span> <span class="hljs-string">zhaoo</span><br></code></pre></td></tr></table></figure>
 
 <p>建议将文章数量改为<strong>9</strong>篇，启用代码高亮效果：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">9</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br><span class="line"></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hljs:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">tab_replace:</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">index_generator:</span><br>  <span class="hljs-attr">path:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attr">per_page:</span> <span class="hljs-number">9</span><br>  <span class="hljs-attr">order_by:</span> <span class="hljs-string">-date</span><br><br><span class="hljs-attr">highlight:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">auto_detect:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">hljs:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">tab_replace:</span><br></code></pre></td></tr></table></figure>
 
 <p>启动 Hexo 服务器预览：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo clean &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
 
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改主题目录下的 <code>_config.yml</code> 文件，配置相关功能：</p>
 <p>建议参考 <a target="_blank" rel="noopener" href="https://github.com/izhaoo/hexo-theme-zhaoo/blob/master/_config.yml">_config.yml</a> 进行配置</p>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>移动到 zhaoo 主题目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/zhaoo</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> themes/zhaoo<br></code></pre></td></tr></table></figure>
 
 <p>从 GitHub 获取更新：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git pull<br></code></pre></td></tr></table></figure>
 
 <h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p><a target="_blank" rel="noopener" href="https://github.com/izhaoo/hexo-theme-zhaoo/blob/master/LICENSE">MIT</a> License</p>
 
