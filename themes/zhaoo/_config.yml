@@ -251,9 +251,9 @@ pjax: false
 # HighLight
 highlight:
   enable: true
-  style: # https://highlightjs.org/static/demo/
-    light: Xcode
-    dark: Solarized Dark
+  style:  # https://highlightjs.org/static/demo/
+    light: Atom One Dark
+    dark: Atom One Dark
 
 # SEO
 seo:
