@@ -1,0 +1,137 @@
+<script>
+    // function Foo() {
+    //     this.a = '小明'
+    // }
+    // var foo = new Foo()
+    // console.log(foo);
+
+    //原型链继承
+    // function Student() {
+    //     this.name = '小明'
+    //     this.age = 12
+    //     this.school = ['语文', '数学']
+    // }
+    // Student.prototype.say = function () {
+    //     console.log('初中')
+    // }
+    // function Age() {
+    // }
+    // Age.prototype = new Student()
+    // var age1 = new Age()
+    // var age2 = new Age()
+    // age1.name = '小红'
+    // age1.age = 18
+    // age1.school.splice(0, 1)
+    // console.log(age1)
+    // console.log(age2)
+
+    //构造函数继承
+    // function Student() {
+
+    //     this.school = ['语文', '数学']
+    // }
+    // Student.prototype.say = function () {
+    //     console.log('初中')
+    // }
+    // function Age() {
+    //     Student.call(this)
+    // }
+    // // Age.prototype = new Student()
+    // var age1 = new Age()
+    // var age2 = new Age()
+    // age1.school.splice(0, 1)
+    // console.log(age1)
+    // console.log(age2)
+
+    // 组合继承
+    //     function Student() {
+
+    //        this.school = ['语文', '数学']
+    //    }
+
+    //    Student.prototype.say = function () {
+    //        console.log('初中')
+    //    }
+
+    //    function Age() {
+    //        Student.call(this)
+    //    }
+    //    Age.prototype = new Student()
+    //    var age1 = new Age()
+    //    var age2 = new Age()
+
+    //    age1.school.splice(0, 1)
+    //    age1.say()
+    //    console.log(age1)
+    //    console.log(age2)
+
+    //寄生组合继承
+    //     function Student() {
+
+    //        this.school = ['语文', '数学']
+    //    }
+
+    //    Student.prototype.say = function () {
+    //        console.log('初中')
+    //    }
+
+    //    function Age() {
+    //        Student.call(this)
+    //    }
+    //    Age.prototype = Object.create(Student.prototype)
+    //    var age1 = new Age()
+    //    var age2 = new Age()
+
+    //    age1.say()
+    //    age2.say()
+    //    console.log(age1)
+    //    console.log(age2)
+
+    //寄生式继承
+    // function Student() {
+
+    //     this.school = ['语文', '数学']
+    // }
+    // const aa = {
+    //     name: "parent5",
+    //     friends: ["p1", "p2", "p3"],
+    //     getName: function () {
+    //         return this.name;
+    //     }
+    // }
+
+
+    // function Age(a) {
+    //     let conle = Object.create(a)
+    //     conle.getSchool = function () {
+    //         return this.friends
+    //     }
+    //     return conle
+    // }
+    // let school =Age(aa)
+
+    // console.log(school.getName());
+    // console.log(school.getSchool())
+
+    class Percons{
+        constructor(name){
+            this.name=name
+        }
+    }
+    class Student extends Percons{
+        constructor(name,age){
+            super(name)
+            this.score=age
+        }
+        fs(){
+            console.log(`我是${this.name} 今年${this.age}`)
+        }
+    }
+    var student=new Student('张三',12)
+    console.log(student)
+    student.fs()
+
+
+
+
+</script>
