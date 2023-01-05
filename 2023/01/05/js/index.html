@@ -6,12 +6,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pinia - Mr.Zhou</title>
+  <title> - Mr.Zhou</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  
+  <meta name="description" content="
+    // function Foo() {
+  ...">
   <meta name="author" content="Mr.Zhou">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -139,26 +141,6 @@
     
 
 
-  <nav class="navbar">
-    <div class="left">
-      
-        <i class="iconfont iconhome j-navbar-back-home"></i>
-      
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-      
-        <i class="iconfont iconsearch j-navbar-search"></i>
-      
-    </div>
-    <div class="center">Pinia</div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
-    
-  </nav>
-
   
   
 
@@ -188,20 +170,156 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/theme/bj/Pinia.webp" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">Pinia</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 30, 2022</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>January 05, 2023</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>0</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2916</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         
-        
+        <script>
+    // function Foo() {
+    //     this.a = '小明'
+    // }
+    // var foo = new Foo()
+    // console.log(foo);
+
+    //原型链继承
+    // function Student() {
+    //     this.name = '小明'
+    //     this.age = 12
+    //     this.school = ['语文', '数学']
+    // }
+    // Student.prototype.say = function () {
+    //     console.log('初中')
+    // }
+    // function Age() {
+    // }
+    // Age.prototype = new Student()
+    // var age1 = new Age()
+    // var age2 = new Age()
+    // age1.name = '小红'
+    // age1.age = 18
+    // age1.school.splice(0, 1)
+    // console.log(age1)
+    // console.log(age2)
+
+    //构造函数继承
+    // function Student() {
+
+    //     this.school = ['语文', '数学']
+    // }
+    // Student.prototype.say = function () {
+    //     console.log('初中')
+    // }
+    // function Age() {
+    //     Student.call(this)
+    // }
+    // // Age.prototype = new Student()
+    // var age1 = new Age()
+    // var age2 = new Age()
+    // age1.school.splice(0, 1)
+    // console.log(age1)
+    // console.log(age2)
+
+    // 组合继承
+    //     function Student() {
+
+    //        this.school = ['语文', '数学']
+    //    }
+
+    //    Student.prototype.say = function () {
+    //        console.log('初中')
+    //    }
+
+    //    function Age() {
+    //        Student.call(this)
+    //    }
+    //    Age.prototype = new Student()
+    //    var age1 = new Age()
+    //    var age2 = new Age()
+
+    //    age1.school.splice(0, 1)
+    //    age1.say()
+    //    console.log(age1)
+    //    console.log(age2)
+
+    //寄生组合继承
+    //     function Student() {
+
+    //        this.school = ['语文', '数学']
+    //    }
+
+    //    Student.prototype.say = function () {
+    //        console.log('初中')
+    //    }
+
+    //    function Age() {
+    //        Student.call(this)
+    //    }
+    //    Age.prototype = Object.create(Student.prototype)
+    //    var age1 = new Age()
+    //    var age2 = new Age()
+
+    //    age1.say()
+    //    age2.say()
+    //    console.log(age1)
+    //    console.log(age2)
+
+    //寄生式继承
+    // function Student() {
+
+    //     this.school = ['语文', '数学']
+    // }
+    // const aa = {
+    //     name: "parent5",
+    //     friends: ["p1", "p2", "p3"],
+    //     getName: function () {
+    //         return this.name;
+    //     }
+    // }
+
+
+    // function Age(a) {
+    //     let conle = Object.create(a)
+    //     conle.getSchool = function () {
+    //         return this.friends
+    //     }
+    //     return conle
+    // }
+    // let school =Age(aa)
+
+    // console.log(school.getName());
+    // console.log(school.getSchool())
+
+    class Percons{
+        constructor(name){
+            this.name=name
+        }
+    }
+    class Student extends Percons{
+        constructor(name,age){
+            super(name)
+            this.score=age
+        }
+        fs(){
+            console.log(`我是${this.name} 今年${this.age}`)
+        }
+    }
+    var student=new Student('张三',12)
+    console.log(student)
+    student.fs()
+
+
+
+
+</script>
       </section>
       <section class="extra">
         
@@ -209,8 +327,8 @@
         
         
   <nav class="nav">
-    <a href="/2023/01/05/js/"><i class="iconfont iconleft"></i></a>
-    <a href="/2022/12/27/gitee/">Gitee<i class="iconfont iconright"></i></a>
+    <a href="/2023/01/05/HTML/"><i class="iconfont iconleft"></i>HTML+CSS</a>
+    <a href="/2022/12/30/Pinia/">Pinia<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
