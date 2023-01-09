@@ -8,7 +8,7 @@
   --color-border: #eee;
   --background-image: url("/images/theme/welcome2.jpg");
   --loading-image: url("/images/theme/loding1.gif");
-  --lazyload-image: url("/images/theme/loading.gif");
+  --lazyload-image: url("/images/theme/loding.gif");
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,7 +24,7 @@
     --color-border: #2b3038;
     --background-image: url("/images/theme/welcome1.jpg");
     --loading-image: url("/images/theme/loding1.gif");
-    --lazyload-image: url("/images/theme/loading.gif");
+    --lazyload-image: url("/images/theme/loding.gif");
   }
 }
 [color-mode='dark'] {
@@ -37,7 +37,7 @@
   --color-border: #2b3038;
   --background-image: url("/images/theme/welcome1.jpg");
   --loading-image: url("/images/theme/loding1.gif");
-  --lazyload-image: url("/images/theme/loading.gif");
+  --lazyload-image: url("/images/theme/loding.gif");
 }
 [color-mode='dark'] .tags a {
   color: var(--color-text) !important;
