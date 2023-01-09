@@ -125,7 +125,7 @@ excerpt:
 # Post Image
 post_image:
   random: local # local galleries
-  default: /images/theme/loading.gif
+  default: /images/theme/loding1.gif
 
 # Page Size
 post_page_size:
@@ -239,7 +239,7 @@ lazyload:
   enable: true
   only_post: false
   loading:
-    gif: /images/theme/loading.gif
+    gif: /images/theme/loding.gif
     lottie:
 
 # FancyBox
