@@ -5,7 +5,6 @@ image: '/images/theme/bj/JavaScript.jpg'
 ---
 JavaScript（JS）是一种具有函数优先特性的轻量级、解释型或者说即时编译型的编程语言。虽然作为 Web 页面中的脚本语言被人所熟知，但是它也被用到了很多非浏览器环境中，例如 Node.js、Apache CouchDB、Adobe Acrobat 等。进一步说，JavaScript 是一种基于原型、多范式、单线程的动态 (en-US)语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。
 
-
 ## JS代码质量工具
 JavaScript Booster
 ## 面试重点
@@ -131,9 +130,9 @@ constructor 原型上的一个属性 它指向实例对象
         console.log('初中')
     }
     function Age() {
-        Student.call(this)
+        Student.call(this) 1
     }
-    Age.prototype = new Student() //会调用两次Student
+   2 Age.prototype = new Student() //会调用两次Student
     var age1 = new Age()
     var age2 = new Age()
     age1.school.splice(0, 1)
@@ -249,7 +248,88 @@ super 用来获取父类初始化的成员
 ps:**super**方法指代父类的实例，即父类的this对象，在子类的构造函数中，调用**super**后，才可以使用this关键字，否则报错。
 
 ### Promise
+    Promise 是异步编程的一种解决方案，比传统的解决方案回调函数, 更合理和更强大 。
+    解决了回调地狱代码过多难以维护的问题
+      Promise 的三种状态
+    * reslove 成功时的状态
+    * reject  失败时的状态
+    * pedding 未完成时的状态
+    从未完成到成功，从未完成到失败
 
-### 事件循环原理
+``` javascript
+     function ajax(url){
+        return new Promise((reslove,reject)=>{
+            reslove({
+                aa:1,
+                bb:2,
+                cc:3
+            })
+            // reject({code:500,error:'请求失败'})
+        })
+    }
+    var por=ajax('111')
+    por.then((res)=>{
+        console.log('请求成功',res)
+        console.log(por)
+    }).catch((error)=>{
+        console.log('请求失败',error)
+    })
+   
+```
+then()
+catch()
+finally()
+then是实例状态发生改变时的回调函数，第一个参数是resolved状态的回调函数，第二个参数是rejected状态的回调函数
+then方法返回的是一个新的Promise实例，也就是promise能链式书写的原因
+catch()方法是.then(null, rejection)或.then(undefined, rejection)的别名，用于指定发生错误时的回调函数
+finally()方法用于指定不管 Promise 对象最后状态如何，都会执行的操作
+调用reslove()方法才能调用then，reslove传出来的值是then的形参
 
-### 变量回收机制
+### async await
+async和await 是Generator的语法糖，async关键字代表后面的函数中有异步操作，await 表示等待一个异步方法执行完成。
+``` javascript
+    async function A(){
+        let a= await ...
+    }
+```
+async函数 返回一个promise 对象，单独一个async函数 和promise执行的功能是一样的。
+await 就是等promise的返回结果后才会继续往下执行
+await 异步等待 等待的是一个promise对象，后面必须跟一个promise对象但是不用写 .then()，直接就可以拿到返回值
+调用async 函数不会造成代码堵塞，但是在await 会引起async函数内部代码的堵塞
+
+promise 和async/await区别
+promise是通过.thne()和.catch()来去处理数据和捕获异常的，并且是链式调用，虽然比回调函数好很多但是还是容易造成代码多层堆叠难以维护；
+async/await则是通过tyr{}.catch{}进行捕获直接抛出异常
+async/await最大的优点是使代码看起来更像同步遇到await立即执行返回结果在执行后面的操作，promise.then()的方式有可能结果还没返回就已经执行了外面的操作
+
+### 运行机制 
+先执行同步任务后执行异步任务
+**一、单线程**
+一个任务执行完之后才能执行另一个
+**二、process.nexTick和setlmmediate方法**
+process.nexTick()在同步之后异步之前执行
+setlmmediate()异步之后执行
+**三、事件循环**
+事件循环会持续的循环任务队列里的方法有任务则放到运行栈里
+**宏任务，微任务**
+宏任务：计时器，ajax，读取文件
+微任务：promise,.then 
+**注意：new Promise里的代码是同步的，then放到任务队列是异步的**
+执行顺序：
+1、同步程序
+2、process.nexTick()
+3、微任务
+4、宏任务
+5、setlmmediate()
+![运行机制图解](/images/theme/screenshot/JavaScriptYXJZ.png)
+
+### 垃圾回收机制
+JavaScript的垃圾回收机制，清除无用的变量释放多余的内存，展现更好的性能。
+在JavaScript中，具有自动垃圾回收机制，也就是说执行环境会自动负责管理代码执行过程中的内存使用情况，会自动清除一些用不到的变量，
+以此来释放内存，该机制每隔一段时间会执行一次。
+JavaScript中能实现垃圾回收机制的方式一共有两种：**标记清除，引用计数**
+**标记清除**
+标记清除是JavaScript中最常用的垃圾回收方式。它的执行方式是在执行环境中每创建一个变量，就会对该变量进行标记，等到执行垃圾回收机制时在根据标记来决定是否进行回收。
+**引用计数**
+引用计数 是一种不太常用的回收机制 顾名思义就是针对值为引用数据类型的变量进行计数。
+引用计数的回收机制是当声明一个变量就会给改变量设定一个值为0的引用次数，当改变量被引用了引用次数就会+1取消则-1若引用次数不变一直为0就会被回收机制给清除不为0则不做任何更改
