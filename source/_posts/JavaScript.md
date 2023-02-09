@@ -305,8 +305,118 @@ async/await则是通过tyr{}.catch{}进行捕获直接抛出异常
 async/await最大的优点是使代码看起来更像同步遇到await立即执行返回结果在执行后面的操作，promise.then()的方式有可能结果还没返回就已经执行了外面的操作
 
 ### 深拷贝和浅拷贝
+原始类型：数值（Number）、字符串（String）、布尔（Boolean）、空（Null）、未定义（Undefined），**存在于栈内存**。
+引用类型：对象、数组、function，**存在与堆内存**
+浅拷贝
+```javascript 
+function fn() {
+        console.log("hello world");
+        console.log(this.name);
+    }
+    let cat = {
+        name: '旺财'
+    }
+    let dog = {
+        name: '喵喵',
+        seayName: function (food1, food2) {
+            console.log('我是' + this.name + '我喜欢吃' + food1 + '和' + food2);
+        }
+    }
+    // fn.call(cat)
+    // dog.seayName.call(cat,'鱼','rou')
+    // dog.seayName.apply(cat,['鱼','肉'])
+    // let a= dog.seayName.bind(cat,'鱼','rou')
+    a()
+```
+深拷贝
+```javascript 
+const Student1 = {
+        name: '小明',
+        age: '2',
+        grieFrind: {
+            user: '小花'
+        }
+    }
+    function copy(obj) {
+        let newObj = {}
+        for (let i in obj) {
+            if (obj[i] instanceof Object) {
+                newObj[i] = copy(obj[i])
+            } else {
+                newObj[i] = Student1[i]
+            }
+        }
+        return newObj
+    }
+    const Student2 = copy(Student1)
+    // Student1.grieFrind.name='小王'
+    console.log(Student1);
+    console.log(Student2);
+```
+
 
 ### 防抖节流
+防抖
+```javascript
+ var ipt = document.querySelector("input")
+    ipt.oninput = denounce(function () {
+        console.log(this.value);
+    }, 500)
+
+    function denounce(fn, del) { //防抖，只执行最后一次
+        var tiem = null
+        return function () {
+            if (tiem !== null) {
+                clearTimeout(tiem)
+            }
+            tiem = setTimeout(() => {
+                fn.call(this)
+
+            }, del)
+        }
+    }
+```
+节流
+```javascript
+ window.onscroll = throttle(function () { //节流 作用：控制高频事件的发生 隔一段时间执行一次
+        console.log(this);
+    }, 500)
+    function throttle(fn, del) {
+        var t = true
+        return function () {
+            if (t) {
+                setTimeout(() => {
+                    fn.call(this)
+                    t = true
+                }, del);
+                t = false
+            }
+        }
+    }
+```
+### call、apply、bind的基本概念
+三种都是用来改变this指向的，其中call和apply的传参方式不同apply的传参方式是数组而call是逗号隔开依次往后排，
+bind的传参方式和call一摸一样但是不会调用函数它会以返回值的形式返回
+  ```javascript
+ function fn() {
+        console.log("hello world");
+        console.log(this.name);
+    }
+    let cat = {
+        name:'旺财'
+    }
+    let dog={
+        name:'喵喵',
+        seayName:function(food1,food2){
+            console.log('我是'+this.name+'我喜欢吃'+food1+'和'+food2);
+        }
+    }
+    // fn.call(cat)
+    // dog.seayName.call(cat,'鱼','rou')
+    // dog.seayName.apply(cat,['鱼','肉'])
+    let a= dog.seayName.bind(cat,'鱼','rou')
+    a()
+  ```
 
 ### 运行机制 
 先执行同步任务后执行异步任务
