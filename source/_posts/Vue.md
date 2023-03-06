@@ -36,7 +36,7 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 ![虚拟Dom结构](/images/theme/screenshot/vmDom.png)
 vue2后使用的都是snabbdom 虚拟dom类库
 
-snabbdom 中几个重要的和新方法
+snabbdom 中几个重要的核心方法
 h函数
 patch函数
 patchVnode函数
@@ -65,3 +65,5 @@ patch函数是比较的开始，patch函数中对根节点进行比较
 **patcVnode**
 patchVnode是比较两个相同节点的子级(文本|子节点)的一个函数，所以它的调用是在新dom判断之后，只有判断两个节点相同的时候才会被执行。
 作用：对比新旧两个节点，更新dom的子级(子级包含文本或子节点)
+
+### Vue3虚拟dom和diff算法
