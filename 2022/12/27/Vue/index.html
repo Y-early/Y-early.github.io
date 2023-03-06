@@ -194,7 +194,7 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 27, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1838</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1854</span>
     </div>
   </div>
 </section>
@@ -205,13 +205,13 @@
 <h3 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h3><p>1、.stop阻止事件冒泡，相当于event.stopPropagation方法。<br>2、.prevent阻止事件默认行为，相当于event.preventDefault方法。<br>3、.once 只执行一次以后不再执行。<br>4、.captuer 当元素发生冒泡时，谁带有此修饰符就先执行谁，若有多个则从外向内触发。<br>5、.native 给组件绑定原生事件，当成普通的html标签看待。<br>6、.passive 执行默认行为和prevent 是对立关系 每次产生时间浏览器都会查询是否有preventDefault阻止该次事件的默认动作 此修饰符就是为了告诉浏览器不用查询我们没有preventDefault阻止默认动作。<br>7、.self 只有触发当前事件的时候才执行冒泡不会执行。</p>
 <h3 id="表单修饰符"><a href="#表单修饰符" class="headerlink" title="表单修饰符"></a>表单修饰符</h3><p>1、.number 只能是数字<br>2、.trim 过滤用户输入的首尾空字符<br>2、.lazy 在我们填完信息，光标离开标签的时候，才会将值赋予给value，也就是在change事件之后再进行信息同步</p>
 <h3 id="虚拟Dom和diff算法Vue2"><a href="#虚拟Dom和diff算法Vue2" class="headerlink" title="虚拟Dom和diff算法Vue2"></a>虚拟Dom和diff算法Vue2</h3><p>虚拟Dom就是一个普通的js对象是用来描述真实Dom结构的js对象，因为不是真是的Dom结构，所以叫做虚拟Dom。<br>虚拟Dom是个对象有6个属性 。<br> (sel) 表示当前节点的标签名。<br> (data) 表示节点上的属性。<br> (elm)表示虚拟节点对应的真是Dom节点。<br> (text)对应当前节点下的文本。<br> (key)当前节点的表示。<br> (childre) 表示当前节点下的其他子节点。<br> <strong>虚拟Dom的作用</strong><br> 传统的Dom在数据发生改变时，需要不断的去操作Dom，虽然后面出现了模板引擎虽然它可以一次性更新多个Dom，但是它没有一个追踪状态的机制，当引擎内的某个数据发生变化时它依然需要操作Dom去重现渲染整个引擎。<br> 虚拟Dom有可以很好的跟踪当前Dom的状态，虚拟Dom会根据当前的数据生成一个描述当前Dom的虚拟Dom，在数据发生变化时又会生成一个新的虚拟Dom，这两个虚拟Dom正好就是变化前和变化后的状态，然后通过diff算法进行比较，哪里有变化就更新哪里。可以大大的提高页面渲染的效率，提高用户的体验。<br><img    class="lazyload" data-original="/images/theme/screenshot/vmDom.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">虚拟Dom结构</span><br>vue2后使用的都是snabbdom 虚拟dom类库</p>
-<p>snabbdom 中几个重要的和新方法<br>h函数<br>patch函数<br>patchVnode函数<br>updateChildren函数</p>
+<p>snabbdom 中几个重要的核心方法<br>h函数<br>patch函数<br>patchVnode函数<br>updateChildren函数</p>
 <p>h函数是在render函数内运行的vue在created &gt; beforeMount之间的时候会将模板编译成某种格式放到render函数内，执行render函数的时候生成虚拟Dom。<br><img    class="lazyload" data-original="/images/theme/screenshot/functionH.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">h函数</span><br>h函数以函数重载的方式定义的<br><strong>什么是函数重载</strong><br>函数重载就是定义多个同名的函数，利用函数的类型以及参数类型来区分，当参数个数不同，参数类型不同时，函数内执行的代码也会不同。<br>h函数内最重要的就是执行了vnode函数 vnode函数主要作用就将h函数传来的参数转成了js对象，既虚拟Dom。</p>
 <p>vnode函数就是生成了js对象就是虚拟Dom</p>
 <p>代码初次运行时生命周期走到created和beforeMount 之间时会把template模板编译成某种格式放到render函数内，然后当render函数执行时，h函数被调用，而h函数内调用啦vnode函数并生成虚拟Dom，并返回结果。<br>之后每次数据发生改变时都会生成新的虚拟dom，再然后就是新旧虚拟Dom的对比。</p>
 <p><strong>diff比较规则</strong><br>diff整体策略：深度优先，同层比较<br>1、diff比较两个虚拟Dom只会在同层级比较不会跨层比较。<br>2、比较的过程中循环从两边向中间收拢</p>
 <p><strong>patch</strong><br>patch函数是比较的开始，patch函数中对根节点进行比较<br>非根节点都是在updateChildren函数中执行<br><strong>patcVnode</strong><br>patchVnode是比较两个相同节点的子级(文本|子节点)的一个函数，所以它的调用是在新dom判断之后，只有判断两个节点相同的时候才会被执行。<br>作用：对比新旧两个节点，更新dom的子级(子级包含文本或子节点)</p>
-
+<h3 id="Vue3虚拟dom和diff算法"><a href="#Vue3虚拟dom和diff算法" class="headerlink" title="Vue3虚拟dom和diff算法"></a>Vue3虚拟dom和diff算法</h3>
       </section>
       <section class="extra">
         
@@ -233,7 +233,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">表单修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FDom%E5%92%8Cdiff%E7%AE%97%E6%B3%95Vue2"><span class="toc-text">虚拟Dom和diff算法Vue2</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">表单修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FDom%E5%92%8Cdiff%E7%AE%97%E6%B3%95Vue2"><span class="toc-text">虚拟Dom和diff算法Vue2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue3%E8%99%9A%E6%8B%9Fdom%E5%92%8Cdiff%E7%AE%97%E6%B3%95"><span class="toc-text">Vue3虚拟dom和diff算法</span></a></li></ol>
   </aside>
 
         
